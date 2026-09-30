@@ -162,6 +162,8 @@ bool pinFeeder = false;
 bool pinPompa = false;
 bool pinLampuKamar1 = false;
 bool pinLampuKamar2 = false;
+bool pinLampuDapur = false;
+bool pinLampuTengah = false;
 bool kontrolManualKipas = false;
 bool kontrolManualBuzzer = false;
 bool kontrolManualLampuTeras = false;
@@ -985,6 +987,8 @@ void kirimKeBlynk() {
   Blynk.virtualWrite(V16, kontrolManualLampuTeras);
   Blynk.virtualWrite(V17, kontrolManualPompa);
   Blynk.virtualWrite(V18, kontrolManualFeeder);
+  Blynk.virtualWrite(V25, pinLampuDapur);
+  Blynk.virtualWrite(V26, pinLampuTengah);
 
     // STATUS ASAP
   if(asap >= BATAS_ASAP) {
@@ -1433,6 +1437,44 @@ BLYNK_WRITE(V21) {
   }
 }
 
+// ===============================
+// BLYNK LAMPU DAPUR
+// V25
+// ===============================
+BLYNK_WRITE(V25){
+  int status = param.asInt();
+
+  if(status == 1){
+    pinLampuDapur = true;
+    kirimPerintahLampu("DAPUR_ON");
+    Serial.println("Lampu Dapur : ON");
+  }
+  else{
+    pinLampuDapur = false;
+    kirimPerintahLampu("DAPUR_OFF");
+    Serial.println("Lampu Dapur : OFF");
+  }
+}
+
+// ===============================
+// BLYNK LAMPU RUANG TENGAH
+// V26
+// ===============================
+BLYNK_WRITE(V26){
+  int status = param.asInt();
+
+  if(status == 1){
+    pinLampuTengah = true;
+    kirimPerintahLampu("TENGAH_ON");
+    Serial.println("Lampu Ruang Tengah : ON");
+  }
+  else{
+    pinLampuTengah = false;
+    kirimPerintahLampu("TENGAH_OFF");
+    Serial.println("Lampu Ruang Tengah : OFF");
+  }
+}
+
 // ==================================================
 // SETUP
 // ==================================================
@@ -1689,6 +1731,16 @@ void kontrolLampuKandang() {
       Serial.println("Mode           : OTOMATIS");
     }
   }
+}
+
+// ===============================
+// KIRIM PERINTAH LAMPU KE ESP1
+// ===============================
+void kirimPerintahLampu(String perintah){
+  UART.println(perintah);
+
+  Serial.print("Perintah ke ESP1 : ");
+  Serial.println(perintah);
 }
 
 // ==================================================
