@@ -87,14 +87,14 @@ HardwareSerial UART(2);
 // ==================================================
 
 #define KIPAS         4
-#define BUZZER        5
-#define LAMPU_TERAS   18
-#define SERVO_JEMURAN 19
+#define BUZZER        12
+#define LAMPU_TERAS   2
+#define SERVO_JEMURAN 13
 #define SERVO_PINTU   14
 #define FEEDER        23
-#define POMPA         13
-#define LAMPU_KAMAR_1 12
-#define LAMPU_KAMAR_2 15
+#define POMPA         5
+#define LAMPU_KAMAR_1 15
+#define LAMPU_KAMAR_2 19
 #define LAMPU_KANDANG 18
 
 // ==================================================
