@@ -30,9 +30,9 @@ VIN : MQ2
 // BLYNK
 // ==================================================
 
-#define BLYNK_TEMPLATE_ID "TMPL6hh7EgGdx"
-#define BLYNK_TEMPLATE_NAME "Smart Home Farm"
-#define BLYNK_AUTH_TOKEN "wQAw4A0sAsw1O_hQJjSrtjHliT0px4VN"
+#define BLYNK_TEMPLATE_ID "masukkan template id"
+#define BLYNK_TEMPLATE_NAME "masukkan template name"
+#define BLYNK_AUTH_TOKEN "masukkan token"
 
 // ==================================================
 // LIBRARY
@@ -56,8 +56,8 @@ Servo servoFeeder;    //OBJEK SERVO FEEDER
 // WIFI
 // ==================================================
 
-char ssid[] = "PNEUMATIK 2";
-char pass[] = "kanjengratu2026";
+char ssid[] = "masukkan SSID WIFI";
+char pass[] = "masukkan password";
 
 
 // ==================================================
